@@ -205,11 +205,11 @@ public class VNCGUI extends JFrame {
                     g2.setRenderingHint(KEY_INTERPOLATION, VALUE_INTERPOLATION_BILINEAR);
                     g2.drawImage(lastFrame, 0, 0, width, height, null);
                 } else {
-                    String message = "No connection. Use \"File > Connect\" to connect to a VNC server.";
+                    String message = "No connection. Use \"Connections > Connect\" to connect to a VNC server.";
                     int messageWidth = g2.getFontMetrics().stringWidth(message);
                     g2.setColor(pink);
                     g2.fillRect(0, 0, width, height);
-                    g2.setColor(LIGHT_GRAY);
+                    g2.setColor(magenta);
                     g2.drawString(message, width / 2 - messageWidth / 2, height / 2);
                 }
             }
