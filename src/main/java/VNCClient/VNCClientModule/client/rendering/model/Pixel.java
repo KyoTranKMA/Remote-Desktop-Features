@@ -1,4 +1,4 @@
-package VNCClient.VNCClient.client.rendering.renderers;
+package VNCClient.VNCClient.client.rendering.model;
 
 public record Pixel(int red, int green, int blue) {
 

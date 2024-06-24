@@ -3,6 +3,7 @@ package VNCClient.VNCClient.client.rendering.renderers;
 
 import VNCClient.VNCClient.client.exceptions.UnexpectedVncException;
 import VNCClient.VNCClient.client.exceptions.BaseVncException;
+import VNCClient.VNCClient.client.rendering.model.Pixel;
 import VNCClient.VNCClient.protocol.messages.PixelFormat;
 import VNCClient.VNCClient.protocol.messages.Rectangle;
 

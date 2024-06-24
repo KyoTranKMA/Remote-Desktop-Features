@@ -37,10 +37,10 @@ public record ClientCutTextExtendedClipboard(String text) implements Encodable {
 
         byte[] output = new byte[20 * 1024 * 1024];
 
-        Deflater compresser = new Deflater();
-        compresser.setInput(input);
-        compresser.finish();
-        int compressedDataLength = compresser.deflate(output);
+        Deflater compressor = new Deflater();
+        compressor.setInput(input);
+        compressor.finish();
+        int compressedDataLength = compressor.deflate(output);
 
         DataOutput dataOutput = new DataOutputStream(out);
 

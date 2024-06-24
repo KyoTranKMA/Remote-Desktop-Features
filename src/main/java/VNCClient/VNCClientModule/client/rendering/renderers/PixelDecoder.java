@@ -1,5 +1,6 @@
 package VNCClient.VNCClient.client.rendering.renderers;
 
+import VNCClient.VNCClient.client.rendering.model.Pixel;
 import VNCClient.VNCClient.protocol.messages.ColorMapEntry;
 import VNCClient.VNCClient.protocol.messages.PixelFormat;
 
