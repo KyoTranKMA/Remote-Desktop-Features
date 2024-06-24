@@ -207,9 +207,9 @@ public class VNCGUI extends JFrame {
                 } else {
                     String message = "No connection. Use \"Connections > Connect\" to connect to a VNC server.";
                     int messageWidth = g2.getFontMetrics().stringWidth(message);
-                    g2.setColor(pink);
+                    g2.setColor(DARK_GRAY);
                     g2.fillRect(0, 0, width, height);
-                    g2.setColor(magenta);
+                    g2.setColor(LIGHT_GRAY);
                     g2.drawString(message, width / 2 - messageWidth / 2, height / 2);
                 }
             }
