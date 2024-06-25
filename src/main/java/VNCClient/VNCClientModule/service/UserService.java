@@ -1,8 +1,11 @@
 package VNCClient.VNCClientModule.service;
 
 
+import VNCClient.VNCClientModule.daoservice.HistoryLoginDao;
 import VNCClient.VNCClientModule.daoservice.UserDao;
+import VNCClient.VNCClientModule.entity.HistoryLoginEntity;
 import VNCClient.VNCClientModule.entity.UserEntity;
+import VNCClient.VNCClientModule.model.HistoryLoginModel;
 import VNCClient.VNCClientModule.model.UserModel;
 
 import java.util.ArrayList;
@@ -21,8 +24,13 @@ public class UserService {
     private UserService() {
         this.listUser = new ArrayList<>();
     }
-    public List<UserModel> getListUser() {
-        return this.LoadUserFromDB();
+    public List<HistoryLoginModel> getListUserIp() {
+        List<HistoryLoginEntity> historyLoginEntities = HistoryLoginDao.getInstance().loadUserIpFromDB();
+        List<HistoryLoginModel> historyLoginModels = new ArrayList<>();
+        for (HistoryLoginEntity entity : historyLoginEntities) {
+            historyLoginModels.add(toModel(entity));
+        }
+        return historyLoginModels;
     }
     public void login(UserModel user) {
         UserDao.getInstance().login(toEntity(user));
@@ -34,13 +42,7 @@ public class UserService {
         UserDao.getInstance().addUser(toEntity(user));
         listUser.add(user);
     }
-    public List<UserModel> LoadUserFromDB() {
-        List<UserEntity> entityList = UserDao.getInstance().loadEntityFromDB();
-        for (UserEntity entity : entityList) {
-            this.listUser.add(toModel(entity));
-        }
-        return List.copyOf(this.listUser);
-    }
+
     private UserEntity toEntity(UserModel user) {
         UserEntity entity = new UserEntity();
         entity.setUsername(user.getUsername());
@@ -56,6 +58,19 @@ public class UserService {
         model.setPassword(entity.getPassword());
         return model;
     }
+    private HistoryLoginEntity toEntity(HistoryLoginModel user) {
+        HistoryLoginEntity HistoryLoginEntity = new HistoryLoginEntity();
+        HistoryLoginEntity.setUsername(user.getUsername());
+        HistoryLoginEntity.setIpAddress(user.getIpAddress());
+        return HistoryLoginEntity;
+    }
+    private HistoryLoginModel toModel(HistoryLoginEntity entity) {
+        HistoryLoginModel historyLoginModel = new HistoryLoginModel();
+        historyLoginModel.setUsername(entity.getUsername());
+        historyLoginModel.setIpAddress(entity.getIpAddress());
+        return historyLoginModel;
+    }
+
 
 
 }

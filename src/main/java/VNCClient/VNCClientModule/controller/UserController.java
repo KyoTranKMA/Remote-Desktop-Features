@@ -1,6 +1,8 @@
 package VNCClient.VNCClientModule.controller;
 
+import VNCClient.VNCClientModule.dto.HistoryLoginDto;
 import VNCClient.VNCClientModule.dto.UserDto;
+import VNCClient.VNCClientModule.model.HistoryLoginModel;
 import VNCClient.VNCClientModule.model.UserModel;
 import VNCClient.VNCClientModule.service.UserService;
 
@@ -21,14 +23,15 @@ public class UserController implements IUserController{
     }
 
     @Override
-    public List<UserDto> getListUser() {
-        List<UserDto> resultList = new ArrayList();
-        List<UserModel> listUser = UserService.getInstance().getListUser();
-        for (UserModel user : listUser) {
+    public List<HistoryLoginDto> getListUserIp() {
+        List<HistoryLoginDto> resultList = new ArrayList();
+        List<HistoryLoginModel> listUser = UserService.getInstance().getListUserIp();
+        for (HistoryLoginModel user : listUser) {
             resultList.add(toDto(user));
         }
         return resultList;
     }
+
     @Override
     public void addUser(UserDto user) {
         UserService.getInstance().addUser(toModel(user));
@@ -57,6 +60,12 @@ public class UserController implements IUserController{
         dto.setUsername(model.getUsername());
         dto.setFirstName(model.getFirstname());
         dto.setPassword(model.getPassword());
+        return dto;
+    }
+    public HistoryLoginDto toDto(HistoryLoginModel model){
+        HistoryLoginDto dto = new HistoryLoginDto();
+        dto.setIpAddess(model.getIpAddress());
+        dto.setUsername(model.getUsername());
         return dto;
     }
 
