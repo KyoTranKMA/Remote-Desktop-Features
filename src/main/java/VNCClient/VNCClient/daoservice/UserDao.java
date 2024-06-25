@@ -53,6 +53,32 @@ public class UserDao {
         }
         return listUser;
     }
+    public boolean login(UserEntity entity) {
+        if (this.dataProvider == null) {
+            throw new RuntimeException("DataProvider is null");
+        }
+        try {
+            final String sql = "Select * From users Where username = ? and password = ?";
+            this.dataProvider.open();
+            PreparedStatement preparedStatement = this.dataProvider.prepareStatement(sql);
+            preparedStatement.setString(1, entity.getUsername());
+            preparedStatement.setString(2, entity.getPassword());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet != null) {
+                while (resultSet.next()) {
+                    System.out.println("Login success");
+                    return true;
+                }
+            }
+            else {
+                System.out.println("Login failed");
+                return false;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
     public void addUser(UserEntity entity) {
         if (this.dataProvider == null) {
             throw new RuntimeException("DataProvider is null");
@@ -83,5 +109,6 @@ public class UserDao {
             }
         }
     }
+
 
 }

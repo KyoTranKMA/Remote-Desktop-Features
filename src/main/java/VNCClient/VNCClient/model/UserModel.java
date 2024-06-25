@@ -40,15 +40,9 @@ public class UserModel {
         this.password = password;
     }
     public void setFirstname(String firstname) {
-        if(firstname == null || firstname.isEmpty()) {
-              throw new IllegalArgumentException("Firstname cannot be null or empty");
-       }
         this.first_name = firstname;
     }
     public void setLastname(String lastname) {
-        if(lastname == null || lastname.isEmpty()) {
-              throw new IllegalArgumentException("Lastname cannot be null or empty");
-       }
         this.last_name = lastname;
     }
 

@@ -34,6 +34,11 @@ public class UserController implements IUserController{
         UserService.getInstance().addUser(toModel(user));
     }
 
+    @Override
+    public void login(UserDto user) {
+        UserService.getInstance().login(toModel(user));
+    }
+
     public UserModel toModel(UserDto dto){
         UserModel model = new UserModel();
         model.setFirstname(dto.getFirstName());

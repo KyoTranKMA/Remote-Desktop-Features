@@ -24,13 +24,8 @@ public class UserService {
     public List<UserModel> getListUser() {
         return this.LoadUserFromDB();
     }
-    private UserEntity toEntity(UserModel user) {
-        UserEntity entity = new UserEntity();
-        entity.setUsername(user.getUsername());
-        entity.setFirstName(user.getFirstname());
-        entity.setLastName(user.getLastname());
-        entity.setPassword(user.getPassword());
-        return entity;
+    public void login(UserModel user) {
+        UserDao.getInstance().login(toEntity(user));
     }
     public void addUser(UserModel user) {
         UserDao.getInstance().addUser(toEntity(user));
@@ -42,6 +37,14 @@ public class UserService {
             this.listUser.add(toModel(entity));
         }
         return List.copyOf(this.listUser);
+    }
+    private UserEntity toEntity(UserModel user) {
+        UserEntity entity = new UserEntity();
+        entity.setUsername(user.getUsername());
+        entity.setFirstName(user.getFirstname());
+        entity.setLastName(user.getLastname());
+        entity.setPassword(user.getPassword());
+        return entity;
     }
     private UserModel toModel(UserEntity entity) {
         UserModel model = new UserModel();

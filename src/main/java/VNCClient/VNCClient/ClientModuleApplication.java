@@ -8,8 +8,11 @@ import VNCClient.VNCClient.dto.UserDto;
 import VNCClient.VNCClient.service.UserService;
 import VNCClient.VNCClient.view.VNCGUI;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static javax.swing.SwingUtilities.invokeLater;
 
@@ -19,10 +22,14 @@ public class ClientModuleApplication {
         UserDao.getInstance().setDataProvider(dataProvider);
         UserService.getInstance().LoadUserFromDB();
     }
-    private void login() {
+    private void login(){
         UserController userController = UserController.getInstance();
+        UserDto userDto = new UserDto();
+        userDto.setUsername("Tran Quang Dieu");
+        userDto.setPassword("Dieu");
+        userController.login(userDto);
         List<UserDto> dto = userController.getListUser();
-        System.out.println(dto.size());
+
     }
     private void signUp(){
         UserController userController = UserController.getInstance();
@@ -39,7 +46,7 @@ public class ClientModuleApplication {
         try {
             ClientModuleApplication app = new ClientModuleApplication();
             app.init();
-            app.signUp();
+            app.login();
             invokeLater(() -> {
                 VNCGUI viewer = new VNCGUI();
                 viewer.setVisible(true);
@@ -50,4 +57,5 @@ public class ClientModuleApplication {
             e.printStackTrace();
         }
     }
+
 }
