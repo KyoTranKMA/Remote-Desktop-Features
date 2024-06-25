@@ -3,6 +3,8 @@ package VNCClient.VNCClientModule.daoservice;
 import VNCClient.VNCClientModule.dbservice.IDataProvider;
 import VNCClient.VNCClientModule.entity.UserEntity;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -67,6 +69,22 @@ public class UserDao {
             if (resultSet != null) {
                 if (resultSet.next()) {
                     System.out.println("Login success");
+                    InetAddress inetAddress = InetAddress.getLocalHost();
+                    String ipAddress = inetAddress.getHostAddress();
+                    System.out.println("Local IP Address: " + ipAddress);
+                    final String sql1 = "INSERT INTO login_history (username, ip_address) VALUES (?, ?)";
+                    PreparedStatement preparedStatement1 = this.dataProvider.prepareStatement(sql1);
+                    preparedStatement1.setString(1, entity.getUsername());
+                    preparedStatement1.setString(2, ipAddress);
+                    int result = preparedStatement1.executeUpdate();
+                    if (result == 1) {
+                        System.out.println("Add login history success");
+                    } else {
+                        System.out.println("Add login history failed");
+                    }
+
+
+
                     return true;
                 } else {
                     System.out.println("Login failed: Incorrect password");
@@ -76,8 +94,39 @@ public class UserDao {
 
         } catch (SQLException ex) {
             Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (UnknownHostException e) {
+            throw new RuntimeException(e);
         }
         return false;
+    }
+    public void logout(UserEntity entity) {
+        if (this.dataProvider == null) {
+            throw new RuntimeException("DataProvider is null");
+        }
+        try {
+            final String sql = "Select * From users Where username = ?";
+            this.dataProvider.open();
+            PreparedStatement preparedStatement = this.dataProvider.prepareStatement(sql);
+            preparedStatement.setString(1, entity.getUsername());
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet != null) {
+                if (resultSet.next()) {
+                    System.out.println("Logout success");
+                    final String sql1 = "DELETE FROM login_history WHERE username = ?";
+                    PreparedStatement preparedStatement1 = this.dataProvider.prepareStatement(sql1);
+                    preparedStatement1.setString(1, entity.getUsername());
+                    int result = preparedStatement1.executeUpdate();
+                    if (result == 1) {
+                        System.out.println("Delete login history success");
+                    } else {
+                        System.out.println("Delete login history failed");
+                    }
+                }
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     public void addUser(UserEntity entity) {
         if (this.dataProvider == null) {

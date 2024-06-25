@@ -19,11 +19,12 @@ public class NetworkInter implements INetworkInter{
         for (NetworkInterface netint : Collections.list(nets)) {
             displayInterfaceInformation(netint);
         }
+        System.out.println("Network Interface: " + netips);
         return netips;
     }
 
 
-    private  void displayInterfaceInformation(NetworkInterface netint) throws SocketException {
+    private void displayInterfaceInformation(NetworkInterface netint) throws SocketException {
         if(netint.getName().matches("eth.") || netint.getName().matches("wlan.") || netint.getName().matches("net.")) {
 
             Enumeration<InetAddress> inetAddresses = netint.getInetAddresses();

@@ -25,9 +25,16 @@ public class ClientModuleApplication {
         userDto.setUsername("tao");
         userDto.setPassword("tao");
         userController.login(userDto);
-        List<UserDto> dto = userController.getListUser();
 
+        List<UserDto> dto = userController.getListUser();
     }
+    private void logout(){
+        UserController userController = UserController.getInstance();
+        UserDto userDto = new UserDto();
+        userDto.setUsername("tao");
+        userController.logout(userDto);
+    }
+
     private void signUp(){
         UserController userController = UserController.getInstance();
         UserDto userDto = new UserDto();
@@ -37,13 +44,12 @@ public class ClientModuleApplication {
         userDto.setLastName("root");
         userController.addUser(userDto);
         userController.getListUser();
-        System.out.println();
     }
     public static void main(String[] args) {
         try {
             ClientModuleApplication app = new ClientModuleApplication();
             app.init();
-            app.login();
+            app.logout();
             invokeLater(() -> {
                 VNCGUI viewer = new VNCGUI();
                 viewer.setVisible(true);

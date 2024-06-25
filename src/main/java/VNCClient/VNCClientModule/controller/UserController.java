@@ -38,6 +38,10 @@ public class UserController implements IUserController{
     public void login(UserDto user) {
         UserService.getInstance().login(toModel(user));
     }
+    @Override
+    public void logout(UserDto user) {
+        UserService.getInstance().logout(toModel(user));
+    }
 
     public UserModel toModel(UserDto dto){
         UserModel model = new UserModel();

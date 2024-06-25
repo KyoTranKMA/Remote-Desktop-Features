@@ -8,4 +8,5 @@ public interface IUserController {
     List<UserDto> getListUser();
     public void addUser(UserDto user);
     void login(UserDto user);
+    void logout(UserDto user);
 }

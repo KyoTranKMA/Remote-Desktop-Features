@@ -34,9 +34,6 @@ public class UserModel {
         this.username = username;
     }
     public void setPassword(String password) {
-        if(password == null || password.isEmpty()) {
-              throw new IllegalArgumentException("Password cannot be null or empty");
-       }
         this.password = password;
     }
     public void setFirstname(String firstname) {

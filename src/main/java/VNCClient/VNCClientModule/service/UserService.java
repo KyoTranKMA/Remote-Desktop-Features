@@ -27,6 +27,9 @@ public class UserService {
     public void login(UserModel user) {
         UserDao.getInstance().login(toEntity(user));
     }
+    public void logout(UserModel user) {
+        UserDao.getInstance().logout(toEntity(user));
+    }
     public void addUser(UserModel user) {
         UserDao.getInstance().addUser(toEntity(user));
         listUser.add(user);
