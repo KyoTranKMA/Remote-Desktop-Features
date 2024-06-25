@@ -5,7 +5,7 @@ import java.io.*;
 /**
  * Represents the pixel format used in the VNC protocol.
  */
-public record PixelFormat(
+public record PixelFormat  (
     int bitsPerPixel, int depth, boolean bigEndian, boolean trueColor, int redMax, int greenMax,
     int blueMax, int redShift, int greenShift, int blueShift) implements Encodable {
 

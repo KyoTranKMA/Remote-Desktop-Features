@@ -24,7 +24,7 @@ RUN mkdir /root/.vnc \
 RUN touch /root/.Xauthority
 
 # Set display resolution (change as needed)
-ENV RESOLUTION=1280x720
+ENV RESOLUTION=1920x1080
 
 # Expose VNC port
 EXPOSE 5901
