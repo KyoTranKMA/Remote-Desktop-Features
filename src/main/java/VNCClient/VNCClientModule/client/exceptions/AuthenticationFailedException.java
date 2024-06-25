@@ -1,4 +1,4 @@
-package VNCClient.VNCClient.client.exceptions;
+package VNCClient.VNCClientModule.client.exceptions;
 
 /**
  * This exception is thrown when authentication fails during a VNC client connection.

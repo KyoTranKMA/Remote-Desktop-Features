@@ -1,9 +1,9 @@
-package VNCClient.VNCClient.protocol.handshaking;
+package VNCClient.VNCClientModule.protocol.handshaking;
 
-import VNCClient.VNCClient.client.VNCSession;
-import VNCClient.VNCClient.client.exceptions.BaseVncException;
-import VNCClient.VNCClient.client.exceptions.UnsupportedProtocolVersionException;
-import VNCClient.VNCClient.protocol.messages.ProtocolVersion;
+import VNCClient.VNCClientModule.client.VNCSession;
+import VNCClient.VNCClientModule.client.exceptions.BaseVncException;
+import VNCClient.VNCClientModule.client.exceptions.UnsupportedProtocolVersionException;
+import VNCClient.VNCClientModule.protocol.messages.ProtocolVersion;
 
 import java.io.IOException;
 

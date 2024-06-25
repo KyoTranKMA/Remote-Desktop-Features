@@ -1,6 +1,6 @@
-package VNCClient.VNCClient.protocol.messages;
+package VNCClient.VNCClientModule.protocol.messages;
 
-import VNCClient.VNCClient.client.exceptions.HandshakingFailedException;
+import VNCClient.VNCClientModule.client.exceptions.HandshakingFailedException;
 
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import static VNCClient.VNCClient.protocol.messages.SecurityType.resolve;
+import static VNCClient.VNCClientModule.protocol.messages.SecurityType.resolve;
 
 public class ServerSecurityTypes {
 

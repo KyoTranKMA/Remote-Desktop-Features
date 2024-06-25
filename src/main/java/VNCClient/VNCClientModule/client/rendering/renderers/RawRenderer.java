@@ -1,10 +1,10 @@
-package VNCClient.VNCClient.client.rendering.renderers;
+package VNCClient.VNCClientModule.client.rendering.renderers;
 
-import VNCClient.VNCClient.client.exceptions.BaseVncException;
-import VNCClient.VNCClient.client.exceptions.UnexpectedVncException;
-import VNCClient.VNCClient.client.rendering.model.Pixel;
-import VNCClient.VNCClient.protocol.messages.PixelFormat;
-import VNCClient.VNCClient.protocol.messages.Rectangle;
+import VNCClient.VNCClientModule.client.exceptions.BaseVncException;
+import VNCClient.VNCClientModule.client.exceptions.UnexpectedVncException;
+import VNCClient.VNCClientModule.client.rendering.model.Pixel;
+import VNCClient.VNCClientModule.protocol.messages.PixelFormat;
+import VNCClient.VNCClientModule.protocol.messages.Rectangle;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;

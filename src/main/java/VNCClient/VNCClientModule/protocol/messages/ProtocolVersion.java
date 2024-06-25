@@ -1,7 +1,7 @@
-package VNCClient.VNCClient.protocol.messages;
+package VNCClient.VNCClientModule.protocol.messages;
 
-import VNCClient.VNCClient.client.exceptions.BaseVncException;
-import VNCClient.VNCClient.client.exceptions.InvalidMessageException;
+import VNCClient.VNCClientModule.client.exceptions.BaseVncException;
+import VNCClient.VNCClientModule.client.exceptions.InvalidMessageException;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;

@@ -1,8 +1,8 @@
-package VNCClient.VNCClient.client.rendering.renderers;
+package VNCClient.VNCClientModule.client.rendering.renderers;
 
-import VNCClient.VNCClient.client.rendering.model.Pixel;
-import VNCClient.VNCClient.protocol.messages.ColorMapEntry;
-import VNCClient.VNCClient.protocol.messages.PixelFormat;
+import VNCClient.VNCClientModule.client.rendering.model.Pixel;
+import VNCClient.VNCClientModule.protocol.messages.ColorMapEntry;
+import VNCClient.VNCClientModule.protocol.messages.PixelFormat;
 
 import java.io.IOException;
 import java.io.InputStream;

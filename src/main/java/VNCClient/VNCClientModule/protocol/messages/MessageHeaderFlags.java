@@ -1,4 +1,4 @@
-package VNCClient.VNCClient.protocol.messages;
+package VNCClient.VNCClientModule.protocol.messages;
 
 /**
  * The MessageHeaderFlags enum represents the flags used in the message header.

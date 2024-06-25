@@ -1,8 +1,8 @@
-package VNCClient.VNCClient.view;
+package VNCClient.VNCClientModule.view;
 
 
-import VNCClient.VNCClient.client.VNCClient;
-import VNCClient.VNCClient.client.VNCConfig;
+import VNCClient.VNCClientModule.client.VNCClient;
+import VNCClient.VNCClientModule.client.VNCConfig;
 
 import javax.swing.*;
 import javax.swing.event.AncestorEvent;
@@ -12,7 +12,7 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.*;
 
-import static VNCClient.VNCClient.client.rendering.ColorDepth.*;
+import static VNCClient.VNCClientModule.client.rendering.ColorDepth.*;
 import static java.awt.BorderLayout.CENTER;
 import static java.awt.Color.*;
 import static java.awt.Cursor.getDefaultCursor;

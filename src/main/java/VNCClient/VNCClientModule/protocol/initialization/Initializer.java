@@ -1,16 +1,16 @@
-package VNCClient.VNCClient.protocol.initialization;
+package VNCClient.VNCClientModule.protocol.initialization;
 
-import VNCClient.VNCClient.client.VNCConfig;
-import VNCClient.VNCClient.client.VNCSession;
-import VNCClient.VNCClient.client.rendering.ColorDepth;
-import VNCClient.VNCClient.protocol.messages.*;
+import VNCClient.VNCClientModule.client.VNCConfig;
+import VNCClient.VNCClientModule.client.VNCSession;
+import VNCClient.VNCClientModule.client.rendering.ColorDepth;
+import VNCClient.VNCClientModule.protocol.messages.*;
 
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import static VNCClient.VNCClient.protocol.messages.Encoding.*;
+import static VNCClient.VNCClientModule.protocol.messages.Encoding.*;
 
 
 public class Initializer {

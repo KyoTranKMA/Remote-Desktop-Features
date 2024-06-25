@@ -1,4 +1,4 @@
-package VNCClient.VNCClient.client.rendering;
+package VNCClient.VNCClientModule.client.rendering;
 
 /**
  * The ColorDepth enum represents different color depths for rendering in a VNC client.

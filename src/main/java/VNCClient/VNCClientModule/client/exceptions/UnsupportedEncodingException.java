@@ -1,4 +1,4 @@
-package VNCClient.VNCClient.client.exceptions;
+package VNCClient.VNCClientModule.client.exceptions;
 
 import static java.lang.String.format;
 

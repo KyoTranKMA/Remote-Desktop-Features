@@ -1,6 +1,6 @@
-package VNCClient.VNCClient;
+package VNCClient.VNCClientModule;
 
-import VNCClient.VNCClient.view.VNCGUI;
+import VNCClient.VNCClientModule.view.VNCGUI;
 
 import static javax.swing.SwingUtilities.invokeLater;
 

@@ -1,4 +1,4 @@
-package VNCClient.VNCClient.utils;
+package VNCClient.VNCClientModule.utils;
 
 import java.awt.event.KeyEvent;
 import java.util.Map;

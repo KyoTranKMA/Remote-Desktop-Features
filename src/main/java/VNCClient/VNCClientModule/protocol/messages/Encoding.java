@@ -1,6 +1,6 @@
-package VNCClient.VNCClient.protocol.messages;
+package VNCClient.VNCClientModule.protocol.messages;
 
-import VNCClient.VNCClient.client.exceptions.UnsupportedEncodingException;
+import VNCClient.VNCClientModule.client.exceptions.UnsupportedEncodingException;
 
 import static java.util.Arrays.stream;
 

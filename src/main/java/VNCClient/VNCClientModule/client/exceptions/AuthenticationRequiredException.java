@@ -1,4 +1,4 @@
-package VNCClient.VNCClient.client.exceptions;
+package VNCClient.VNCClientModule.client.exceptions;
 
 /**
  * This exception is thrown when authentication steps are required to perform further actions.

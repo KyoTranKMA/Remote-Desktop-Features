@@ -1,10 +1,10 @@
-package VNCClient.VNCClient.protocol.handshaking;
+package VNCClient.VNCClientModule.protocol.handshaking;
 
-import VNCClient.VNCClient.client.VNCSession;
-import VNCClient.VNCClient.client.exceptions.AuthenticationFailedException;
-import VNCClient.VNCClient.client.exceptions.BaseVncException;
-import VNCClient.VNCClient.protocol.auth.SecurityHandler;
-import VNCClient.VNCClient.protocol.messages.SecurityResult;
+import VNCClient.VNCClientModule.client.VNCSession;
+import VNCClient.VNCClientModule.client.exceptions.AuthenticationFailedException;
+import VNCClient.VNCClientModule.client.exceptions.BaseVncException;
+import VNCClient.VNCClientModule.protocol.auth.SecurityHandler;
+import VNCClient.VNCClientModule.protocol.messages.SecurityResult;
 
 import java.io.IOException;
 

@@ -1,15 +1,15 @@
-package VNCClient.VNCClient.protocol.handshaking;
+package VNCClient.VNCClientModule.protocol.handshaking;
 
-import VNCClient.VNCClient.client.VNCSession;
-import VNCClient.VNCClient.client.exceptions.NoSupportedSecurityTypesException;
-import VNCClient.VNCClient.client.exceptions.BaseVncException;
-import VNCClient.VNCClient.protocol.auth.MsLogon2AuthenticationHandler;
-import VNCClient.VNCClient.protocol.auth.NoSecurityHandler;
-import VNCClient.VNCClient.protocol.auth.SecurityHandler;
-import VNCClient.VNCClient.protocol.auth.VncAuthenticationHandler;
-import VNCClient.VNCClient.protocol.messages.SecurityType;
-import VNCClient.VNCClient.protocol.messages.ServerSecurityType;
-import VNCClient.VNCClient.protocol.messages.ServerSecurityTypes;
+import VNCClient.VNCClientModule.client.VNCSession;
+import VNCClient.VNCClientModule.client.exceptions.NoSupportedSecurityTypesException;
+import VNCClient.VNCClientModule.client.exceptions.BaseVncException;
+import VNCClient.VNCClientModule.protocol.auth.MsLogon2AuthenticationHandler;
+import VNCClient.VNCClientModule.protocol.auth.NoSecurityHandler;
+import VNCClient.VNCClientModule.protocol.auth.SecurityHandler;
+import VNCClient.VNCClientModule.protocol.auth.VncAuthenticationHandler;
+import VNCClient.VNCClientModule.protocol.messages.SecurityType;
+import VNCClient.VNCClientModule.protocol.messages.ServerSecurityType;
+import VNCClient.VNCClientModule.protocol.messages.ServerSecurityTypes;
 
 import java.io.IOException;
 import java.util.List;

@@ -1,4 +1,4 @@
-package VNCClient.VNCClient.utils;
+package VNCClient.VNCClientModule.utils;
 
 import static java.lang.System.arraycopy;
 

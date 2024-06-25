@@ -1,9 +1,9 @@
-package VNCClient.VNCClient.client;
+package VNCClient.VNCClientModule.client;
 
 
-import VNCClient.VNCClient.client.exceptions.BaseVncException;
-import VNCClient.VNCClient.client.exceptions.UnexpectedVncException;
-import VNCClient.VNCClient.protocol.messages.*;
+import VNCClient.VNCClientModule.client.exceptions.BaseVncException;
+import VNCClient.VNCClientModule.client.exceptions.UnexpectedVncException;
+import VNCClient.VNCClientModule.protocol.messages.*;
 
 import java.io.IOException;
 import java.time.LocalDateTime;

@@ -1,4 +1,4 @@
-package VNCClient.VNCClient.client.exceptions;
+package VNCClient.VNCClientModule.client.exceptions;
 
 /**
  * This exception is thrown when the handshaking process fails during the VNC client connection.

@@ -1,15 +1,15 @@
-package VNCClient.VNCClient.client.rendering;
+package VNCClient.VNCClientModule.client.rendering;
 
-import VNCClient.VNCClient.client.VNCSession;
-import VNCClient.VNCClient.client.exceptions.UnexpectedVncException;
-import VNCClient.VNCClient.client.exceptions.BaseVncException;
-import VNCClient.VNCClient.client.rendering.renderers.*;
+import VNCClient.VNCClientModule.client.VNCSession;
+import VNCClient.VNCClientModule.client.exceptions.UnexpectedVncException;
+import VNCClient.VNCClientModule.client.exceptions.BaseVncException;
+import VNCClient.VNCClientModule.client.rendering.renderers.*;
 
-import VNCClient.VNCClient.protocol.messages.ColorMapEntry;
-import VNCClient.VNCClient.protocol.messages.Encoding;
-import VNCClient.VNCClient.protocol.messages.FramebufferUpdate;
-import VNCClient.VNCClient.protocol.messages.SetColorMapEntries;
-import VNCClient.VNCClient.protocol.messages.Rectangle;
+import VNCClient.VNCClientModule.protocol.messages.ColorMapEntry;
+import VNCClient.VNCClientModule.protocol.messages.Encoding;
+import VNCClient.VNCClientModule.protocol.messages.FramebufferUpdate;
+import VNCClient.VNCClientModule.protocol.messages.SetColorMapEntries;
+import VNCClient.VNCClientModule.protocol.messages.Rectangle;
 
 
 import java.awt.*;
@@ -23,7 +23,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
-import static VNCClient.VNCClient.protocol.messages.Encoding.*;
+import static VNCClient.VNCClientModule.protocol.messages.Encoding.*;
 import static java.awt.image.BufferedImage.TYPE_INT_ARGB;
 import static java.awt.image.BufferedImage.TYPE_INT_RGB;
 

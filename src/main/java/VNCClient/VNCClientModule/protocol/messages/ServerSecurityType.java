@@ -1,13 +1,13 @@
-package VNCClient.VNCClient.protocol.messages;
+package VNCClient.VNCClientModule.protocol.messages;
 
-import VNCClient.VNCClient.client.exceptions.HandshakingFailedException;
-import VNCClient.VNCClient.client.exceptions.NoSupportedSecurityTypesException;
+import VNCClient.VNCClientModule.client.exceptions.HandshakingFailedException;
+import VNCClient.VNCClientModule.client.exceptions.NoSupportedSecurityTypesException;
 
 import java.io.DataInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-import static VNCClient.VNCClient.protocol.messages.SecurityType.resolve;
+import static VNCClient.VNCClientModule.protocol.messages.SecurityType.resolve;
 
 /**
  * Represents the security type of the VNC server.

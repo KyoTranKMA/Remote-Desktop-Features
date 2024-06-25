@@ -1,13 +1,13 @@
-package VNCClient.VNCClient.protocol.auth;
+package VNCClient.VNCClientModule.protocol.auth;
 
-import VNCClient.VNCClient.client.VNCSession;
-import VNCClient.VNCClient.protocol.messages.ProtocolVersion;
-import VNCClient.VNCClient.protocol.messages.SecurityResult;
+import VNCClient.VNCClientModule.client.VNCSession;
+import VNCClient.VNCClientModule.protocol.messages.ProtocolVersion;
+import VNCClient.VNCClientModule.protocol.messages.SecurityResult;
 
 import java.io.DataOutputStream;
 import java.io.IOException;
 
-import static VNCClient.VNCClient.protocol.messages.SecurityType.NONE;
+import static VNCClient.VNCClientModule.protocol.messages.SecurityType.NONE;
 
 /**
  * The NoSecurityHandler class handles the "No Security" authentication mechanism for a VNC session.

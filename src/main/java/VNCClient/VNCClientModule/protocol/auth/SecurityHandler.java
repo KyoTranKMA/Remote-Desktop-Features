@@ -1,8 +1,8 @@
-package VNCClient.VNCClient.protocol.auth;
+package VNCClient.VNCClientModule.protocol.auth;
 
-import VNCClient.VNCClient.client.VNCSession;
-import VNCClient.VNCClient.client.exceptions.BaseVncException;
-import VNCClient.VNCClient.protocol.messages.SecurityResult;
+import VNCClient.VNCClientModule.client.VNCSession;
+import VNCClient.VNCClientModule.client.exceptions.BaseVncException;
+import VNCClient.VNCClientModule.protocol.messages.SecurityResult;
 
 import java.io.IOException;
 

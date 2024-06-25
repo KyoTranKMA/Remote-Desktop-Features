@@ -1,4 +1,4 @@
-package VNCClient.VNCClient.client.exceptions;
+package VNCClient.VNCClientModule.client.exceptions;
 
 /**
  * Represents an exception that is thrown when an unexpected exception occurs in the VNC client.

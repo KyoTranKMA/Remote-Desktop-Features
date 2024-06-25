@@ -1,10 +1,10 @@
-package VNCClient.VNCClient.client;
+package VNCClient.VNCClientModule.client;
 
-import VNCClient.VNCClient.client.exceptions.BaseVncException;
-import VNCClient.VNCClient.client.exceptions.UnexpectedVncException;
-import VNCClient.VNCClient.protocol.handshaking.HandShaker;
-import VNCClient.VNCClient.protocol.initialization.Initializer;
-import VNCClient.VNCClient.utils.KeySyms;
+import VNCClient.VNCClientModule.client.exceptions.BaseVncException;
+import VNCClient.VNCClientModule.client.exceptions.UnexpectedVncException;
+import VNCClient.VNCClientModule.protocol.handshaking.HandShaker;
+import VNCClient.VNCClientModule.protocol.initialization.Initializer;
+import VNCClient.VNCClientModule.utils.KeySyms;
 
 import java.awt.event.KeyEvent;
 import java.io.BufferedInputStream;

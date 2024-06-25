@@ -1,8 +1,8 @@
-package VNCClient.VNCClient.client;
+package VNCClient.VNCClientModule.client;
 
-import VNCClient.VNCClient.client.exceptions.BaseVncException;
-import VNCClient.VNCClient.client.rendering.ColorDepth;
-import VNCClient.VNCClient.protocol.messages.MessageHeaderFlags;
+import VNCClient.VNCClientModule.client.exceptions.BaseVncException;
+import VNCClient.VNCClientModule.client.rendering.ColorDepth;
+import VNCClient.VNCClientModule.protocol.messages.MessageHeaderFlags;
 
 import java.awt.*;
 import java.util.EnumMap;
@@ -11,7 +11,7 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
-import static VNCClient.VNCClient.client.rendering.ColorDepth.BPP_8_INDEXED;
+import static VNCClient.VNCClientModule.client.rendering.ColorDepth.BPP_8_INDEXED;
 
 public class VNCConfig {
 

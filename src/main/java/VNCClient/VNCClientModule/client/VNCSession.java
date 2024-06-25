@@ -1,8 +1,8 @@
-package VNCClient.VNCClient.client;
+package VNCClient.VNCClientModule.client;
 
-import VNCClient.VNCClient.protocol.messages.PixelFormat;
-import VNCClient.VNCClient.protocol.messages.ProtocolVersion;
-import VNCClient.VNCClient.protocol.messages.ServerInit;
+import VNCClient.VNCClientModule.protocol.messages.PixelFormat;
+import VNCClient.VNCClientModule.protocol.messages.ProtocolVersion;
+import VNCClient.VNCClientModule.protocol.messages.ServerInit;
 
 import java.io.IOException;
 import java.io.InputStream;

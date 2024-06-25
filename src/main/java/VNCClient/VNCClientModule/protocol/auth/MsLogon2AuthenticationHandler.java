@@ -1,10 +1,10 @@
-package VNCClient.VNCClient.protocol.auth;
+package VNCClient.VNCClientModule.protocol.auth;
 
-import VNCClient.VNCClient.client.VNCSession;
-import VNCClient.VNCClient.client.exceptions.AuthenticationRequiredException;
-import VNCClient.VNCClient.client.exceptions.UnexpectedVncException;
-import VNCClient.VNCClient.client.exceptions.BaseVncException;
-import VNCClient.VNCClient.protocol.messages.SecurityResult;
+import VNCClient.VNCClientModule.client.VNCSession;
+import VNCClient.VNCClientModule.client.exceptions.AuthenticationRequiredException;
+import VNCClient.VNCClientModule.client.exceptions.UnexpectedVncException;
+import VNCClient.VNCClientModule.client.exceptions.BaseVncException;
+import VNCClient.VNCClientModule.protocol.messages.SecurityResult;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
@@ -17,8 +17,8 @@ import java.security.SecureRandom;
 import java.util.Random;
 import java.util.function.Supplier;
 
-import static VNCClient.VNCClient.protocol.messages.SecurityType.MS_LOGON_2;
-import static VNCClient.VNCClient.utils.ByteUtils.*;
+import static VNCClient.VNCClientModule.protocol.messages.SecurityType.MS_LOGON_2;
+import static VNCClient.VNCClientModule.utils.ByteUtils.*;
 import static java.nio.charset.StandardCharsets.ISO_8859_1;
 import static javax.crypto.Cipher.ENCRYPT_MODE;
 

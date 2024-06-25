@@ -1,4 +1,4 @@
-package VNCClient.VNCClient.protocol.messages;
+package VNCClient.VNCClientModule.protocol.messages;
 
 import java.io.DataOutput;
 import java.io.DataOutputStream;
@@ -9,8 +9,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
 import java.util.zip.Deflater;
 
-import static VNCClient.VNCClient.protocol.messages.MessageHeaderFlags.PROVIDE;
-import static VNCClient.VNCClient.protocol.messages.MessageHeaderFlags.TEXT;
+import static VNCClient.VNCClientModule.protocol.messages.MessageHeaderFlags.PROVIDE;
+import static VNCClient.VNCClientModule.protocol.messages.MessageHeaderFlags.TEXT;
 
 
 /**

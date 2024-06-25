@@ -1,4 +1,4 @@
-package VNCClient.VNCClient.protocol.messages;
+package VNCClient.VNCClientModule.protocol.messages;
 
 import java.io.DataInputStream;
 import java.io.IOException;

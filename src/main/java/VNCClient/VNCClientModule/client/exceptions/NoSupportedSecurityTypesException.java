@@ -1,4 +1,4 @@
-package VNCClient.VNCClient.client.exceptions;
+package VNCClient.VNCClientModule.client.exceptions;
 
 /**
  * This exception is thrown when the VNC server does not support any of the VNC security types
