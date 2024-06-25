@@ -25,8 +25,8 @@ public class ClientModuleApplication {
     private void login(){
         UserController userController = UserController.getInstance();
         UserDto userDto = new UserDto();
-        userDto.setUsername("Tran Quang Dieu");
-        userDto.setPassword("Dieu");
+        userDto.setUsername("tao");
+        userDto.setPassword("tao");
         userController.login(userDto);
         List<UserDto> dto = userController.getListUser();
 
@@ -34,9 +34,9 @@ public class ClientModuleApplication {
     private void signUp(){
         UserController userController = UserController.getInstance();
         UserDto userDto = new UserDto();
-        userDto.setUsername("Tran Quang Dieu");
-        userDto.setPassword("Dieu");
-        userDto.setFirstName("admin");
+        userDto.setUsername("tao");
+        userDto.setPassword("tao");
+        userDto.setFirstName("Tran Quang Dieu");
         userDto.setLastName("root");
         userController.addUser(userDto);
         userController.getListUser();

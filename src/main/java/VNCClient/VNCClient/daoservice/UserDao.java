@@ -65,15 +65,15 @@ public class UserDao {
             preparedStatement.setString(2, entity.getPassword());
             ResultSet resultSet = preparedStatement.executeQuery();
             if (resultSet != null) {
-                while (resultSet.next()) {
+                if (resultSet.next()) {
                     System.out.println("Login success");
                     return true;
+                } else {
+                    System.out.println("Login failed: Incorrect password");
+                    return false;
                 }
             }
-            else {
-                System.out.println("Login failed");
-                return false;
-            }
+
         } catch (SQLException ex) {
             Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
         }
