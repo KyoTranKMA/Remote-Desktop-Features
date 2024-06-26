@@ -38,9 +38,9 @@ public class UserService {
     public void logout(UserModel user) {
         UserDao.getInstance().logout(toEntity(user));
     }
-    public void addUser(UserModel user) {
-        UserDao.getInstance().addUser(toEntity(user));
+    public boolean addUser(UserModel user) {
         listUser.add(user);
+        return UserDao.getInstance().addUser(toEntity(user));
     }
 
     private UserEntity toEntity(UserModel user) {

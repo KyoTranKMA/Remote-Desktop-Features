@@ -33,8 +33,8 @@ public class UserController implements IUserController{
     }
 
     @Override
-    public void addUser(UserDto user) {
-        UserService.getInstance().addUser(toModel(user));
+    public boolean addUser(UserDto user) {
+       return UserService.getInstance().addUser(toModel(user));
     }
 
     @Override

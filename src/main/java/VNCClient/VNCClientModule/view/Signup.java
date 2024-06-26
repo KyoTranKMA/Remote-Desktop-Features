@@ -86,7 +86,7 @@ public class Signup extends JPanel {
 
 
         // Create the handler
-        signupHandler = new SignupHandler(mainFrame, usernameField, passwordField);
+        signupHandler = new SignupHandler(mainFrame, usernameField, passwordField, confirmPasswordField, firstNameField, lastNameField);
 
         // Add action listeners to the buttons
         signupButton.addActionListener(new ActionListener() {

@@ -4,6 +4,7 @@ import VNCClient.VNCClientModule.controller.UserController;
 import VNCClient.VNCClientModule.daoservice.UserDao;
 import VNCClient.VNCClientModule.dbservice.IDataProvider;
 import VNCClient.VNCClientModule.dbservice.MySQLDataProvider;
+import VNCClient.VNCClientModule.dto.HistoryLoginDto;
 import VNCClient.VNCClientModule.dto.UserDto;
 import VNCClient.VNCClientModule.service.UserService;
 import VNCClient.VNCClientModule.view.MainFrame;
@@ -19,34 +20,32 @@ public class ClientModuleApplication {
     private void init() throws SQLException {
         IDataProvider dataProvider = new MySQLDataProvider();
         UserDao.getInstance().setDataProvider(dataProvider);
-        UserService.getInstance().LoadUserFromDB();
     }
-    public static void login(String username, String password){
+    private void login(){
         UserController userController = UserController.getInstance();
         UserDto userDto = new UserDto();
-        userDto.setUsername(username);
-        userDto.setPassword(password);
+        userDto.setUsername("tao");
+        userDto.setPassword("tao");
         userController.login(userDto);
 
-        List<UserDto> dto = userController.getListUser();
+        List<HistoryLoginDto> dto = userController.getListUserIp();
+        System.out.println(dto.toString());
     }
     public static void logout(String username){
         UserController userController = UserController.getInstance();
         UserDto userDto = new UserDto();
         userDto.setUsername(username);
         userController.logout(userDto);
-        System.out.println(username);
     }
 
-    private void signUp(){
+    private void signUp(String username, String password, String firstName, String lastName){
         UserController userController = UserController.getInstance();
         UserDto userDto = new UserDto();
-        userDto.setUsername("tao");
-        userDto.setPassword("tao");
-        userDto.setFirstName("Tran Quang Dieu");
-        userDto.setLastName("root");
+        userDto.setUsername(username);
+        userDto.setPassword(password);
+        userDto.setFirstName(firstName);
+        userDto.setLastName(lastName);
         userController.addUser(userDto);
-        userController.getListUser();
     }
     public static void main(String[] args) {
         try {

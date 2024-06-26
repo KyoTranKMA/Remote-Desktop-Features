@@ -128,7 +128,7 @@ public class UserDao {
             Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    public void addUser(UserEntity entity) {
+    public boolean addUser(UserEntity entity) {
         if (this.dataProvider == null) {
             throw new RuntimeException("DataProvider is null");
         }
@@ -144,8 +144,10 @@ public class UserDao {
             int result = preparedStatement.executeUpdate();
             if (result == 1) {
                 System.out.println("Add user success");
+                return true;
             } else {
                 System.out.println("Add user failed");
+                return false;
             }
 
         } catch (SQLException ex) {
@@ -157,6 +159,7 @@ public class UserDao {
                 Logger.getLogger(UserDao.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        return false;
     }
 
 

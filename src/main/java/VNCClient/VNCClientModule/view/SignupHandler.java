@@ -1,29 +1,53 @@
 package VNCClient.VNCClientModule.view;
 
 
+import VNCClient.VNCClientModule.controller.UserController;
+import VNCClient.VNCClientModule.dto.UserDto;
+import VNCClient.VNCClientModule.model.UserModel;
+
 import javax.swing.*;
 
 public class SignupHandler {
     private MainFrame mainFrame;
     private JTextField usernameField;
     private JPasswordField passwordField;
+    private JPasswordField confirmPasswordField;
+    private JTextField firstNameField;
+    private JTextField lastNameField;
 
-    public SignupHandler(MainFrame mainFrame, JTextField usernameField, JPasswordField passwordField) {
+    public SignupHandler(MainFrame mainFrame, JTextField usernameField, JPasswordField passwordField, JPasswordField confirmPasswordField, JTextField firstNameField, JTextField lastNameField) {
         this.mainFrame = mainFrame;
         this.usernameField = usernameField;
         this.passwordField = passwordField;
+        this.confirmPasswordField = confirmPasswordField;
+        this.firstNameField = firstNameField;
+        this.lastNameField = lastNameField;
     }
 
     public void handleSignupButtonClicked() {
         String username = usernameField.getText();
         String password = new String(passwordField.getPassword());
+        String cfmPassword = new String(confirmPasswordField.getPassword());
+        String firstName = firstNameField.getText();
+        String lastName = lastNameField.getText();
 
-        // Validate the user input and perform the signup
-        // This is just a placeholder - you should replace this with your actual signup logic
-        if (username.length() > 0 && password.length() > 0) {
-            System.out.println("Signup successful");
+        UserController userController = UserController.getInstance();
+        UserDto userDto = new UserDto();
+        userDto.setUsername(username);
+        userDto.setPassword(password);
+
+        boolean isPasswordMatch = password.equals(cfmPassword);
+        if (!isPasswordMatch) {
+            JOptionPane.showMessageDialog(mainFrame, "Password does not match", "Signup Failed", JOptionPane.ERROR_MESSAGE);
+            return;
         } else {
-            System.out.println("Signup failed");
+            boolean signupSuccessful = UserController.getInstance().addUser(userDto);
+            if (signupSuccessful) {
+                JOptionPane.showMessageDialog(mainFrame, "Signup successful", "Signup Success", JOptionPane.INFORMATION_MESSAGE);
+                mainFrame.showCard("Login");
+            } else {
+                JOptionPane.showMessageDialog(mainFrame, "Signup failed", "Signup Failed", JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 
