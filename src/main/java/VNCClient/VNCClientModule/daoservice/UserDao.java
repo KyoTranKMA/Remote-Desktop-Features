@@ -84,8 +84,6 @@ public class UserDao {
                         System.out.println("Add login history failed");
                     }
 
-//                    VNCGUI viewer = new VNCGUI(entity.getUsername());
-//                    viewer.setVisible(true);
 
                     return true;
                 } else {

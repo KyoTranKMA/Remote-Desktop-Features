@@ -35,6 +35,7 @@ public class ClientModuleApplication {
         UserDto userDto = new UserDto();
         userDto.setUsername(username);
         userController.logout(userDto);
+        System.out.println(username);
     }
 
     private void signUp(){
