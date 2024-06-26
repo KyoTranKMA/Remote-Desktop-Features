@@ -33,6 +33,8 @@ public class SignupHandler {
 
         UserController userController = UserController.getInstance();
         UserDto userDto = new UserDto();
+        userDto.setFirstName(firstName);
+        userDto.setLastName(lastName);
         userDto.setUsername(username);
         userDto.setPassword(password);
 
@@ -46,7 +48,7 @@ public class SignupHandler {
                 JOptionPane.showMessageDialog(mainFrame, "Signup successful", "Signup Success", JOptionPane.INFORMATION_MESSAGE);
                 mainFrame.showCard("Login");
             } else {
-                JOptionPane.showMessageDialog(mainFrame, "Signup failed", "Signup Failed", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(mainFrame, "Username already existed", "Signup Failed", JOptionPane.ERROR_MESSAGE);
             }
         }
     }
