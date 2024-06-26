@@ -33,6 +33,8 @@ public class SignupHandler {
 
         UserController userController = UserController.getInstance();
         UserDto userDto = new UserDto();
+        userDto.setFirstName(firstName);
+        userDto.setLastName(lastName);
         userDto.setUsername(username);
         userDto.setPassword(password);
 
