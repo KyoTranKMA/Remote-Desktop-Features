@@ -56,8 +56,6 @@ public class ClientModuleApplication {
             invokeLater(() -> {
                 MainFrame mainFrame = new MainFrame();
                 mainFrame.setVisible(true);
-//                VNCGUI viewer = new VNCGUI();
-//                viewer.setVisible(true);
             });
 
         }
