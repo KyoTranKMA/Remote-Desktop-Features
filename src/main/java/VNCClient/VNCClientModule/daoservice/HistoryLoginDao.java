@@ -38,7 +38,7 @@ public class HistoryLoginDao {
         }
         List<HistoryLoginEntity> listUser = new ArrayList();
         try {
-            final String sql = "Select * From login_history";
+            final String sql = "SELECT username, MAX(ip_address) as ip_address FROM login_history GROUP BY username";
             this.dataProvider.open();
             ResultSet resultSet = this.dataProvider.executeQuery(sql);
             if (resultSet != null) {

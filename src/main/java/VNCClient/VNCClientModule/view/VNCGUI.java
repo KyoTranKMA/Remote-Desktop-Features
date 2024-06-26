@@ -4,6 +4,10 @@ package VNCClient.VNCClientModule.view;
 import VNCClient.VNCClientModule.ClientModuleApplication;
 import VNCClient.VNCClientModule.client.VNCClient;
 import VNCClient.VNCClientModule.client.VNCConfig;
+import VNCClient.VNCClientModule.controller.IUserController;
+import VNCClient.VNCClientModule.controller.UserController;
+import VNCClient.VNCClientModule.dto.HistoryLoginDto;
+import VNCClient.VNCClientModule.dto.UserDto;
 
 import javax.swing.*;
 import javax.swing.event.AncestorEvent;
@@ -12,6 +16,8 @@ import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.*;
+import java.util.Arrays;
+import java.util.List;
 
 import static VNCClient.VNCClientModule.client.rendering.ColorDepth.*;
 import static java.awt.BorderLayout.CENTER;
@@ -338,23 +344,36 @@ public class VNCGUI extends JFrame {
         JTextField hostField = new JTextField(20);
         hostField.addAncestorListener(focusRequester);
         JTextField portField = new JTextField("5900", 4);
+
+        JPanel hostPanel = new JPanel();
         JLabel hostLabel = new JLabel("Host");
-        hostLabel.setLabelFor(hostField);
+        JComboBox<String> comboBox = new JComboBox<>();
+        UserController userController = UserController.getInstance();
+        List<HistoryLoginDto> dto = userController.getListUserIp();
+        for (HistoryLoginDto historyLoginDto : dto) {
+            comboBox.addItem(historyLoginDto.getIpAddress() + "-" + historyLoginDto.getUsername());
+        }
+        hostPanel.add(hostLabel);
+        hostPanel.add(comboBox);
+
+//        hostLabel.setLabelFor(hostField);
         JLabel portLabel = new JLabel("Port");
         portLabel.setLabelFor(hostLabel);
 
-        connectDialog.add(hostLabel);
-        connectDialog.add(hostField);
+        connectDialog.add(hostPanel);
+//        connectDialog.add(hostField);
         connectDialog.add(portLabel);
         connectDialog.add(portField);
 
         int choice = showConfirmDialog(this, connectDialog, "Connect", OK_CANCEL_OPTION);
-        if (choice == OK_OPTION) {
-            String host = hostField.getText();
-            if (host == null || host.isEmpty()) {
-                showMessageDialog(this, "Please enter a valid host", null, WARNING_MESSAGE);
-                return;
-            }
+            if (choice == OK_OPTION) {
+                String selectedItem = (String) comboBox.getSelectedItem(); // Lấy giá trị trong JComboBox
+                if (selectedItem == null || selectedItem.isEmpty()) {
+                    showMessageDialog(this, "Please enter a valid host", null, WARNING_MESSAGE);
+                    return;
+                }
+            String[] parts = selectedItem.split("-"); // Tách chuỗi để lấy ip host
+            String host = parts[0];
             int port;
             try {
                 port = parseInt(portField.getText());

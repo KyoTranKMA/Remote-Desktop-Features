@@ -1,5 +1,10 @@
 package VNCClient.VNCClientModule.controller;
 
+import VNCClient.VNCClientModule.daoservice.HistoryLoginDao;
+import VNCClient.VNCClientModule.daoservice.UserDao;
+import VNCClient.VNCClientModule.dbservice.IDataProvider;
+import VNCClient.VNCClientModule.dbservice.MySQLDataProvider;
+import VNCClient.VNCClientModule.dto.HistoryLoginDto;
 import VNCClient.VNCClientModule.service.INetworkInter;
 import VNCClient.VNCClientModule.service.NetworkInter;
 
@@ -9,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.SocketException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -29,16 +35,21 @@ public class RemoteClientController extends JFrame {
         add(comboBox);
         add(new JScrollPane(listView));
 
-        ArrayList<String> ips;
-        try {
-            INetworkInter net = new NetworkInter();
-            ips = net.getAllIp();
-            for (String ip : ips) {
-                comboBox.addItem(ip);
-            }
-        } catch (SocketException ex) {
-            Logger.getLogger(RemoteClientController.class.getName()).log(Level.SEVERE, null, ex);
+//        ArrayList<String> ips;
+//                    INetworkInter net = new NetworkInter();
+//            ips = net.getAllIp();
+//            for (String ip : ips) {
+//                comboBox.addItem(ip);
+//            }
+        IDataProvider dataProvider = new MySQLDataProvider();
+        UserDao.getInstance().setDataProvider(dataProvider);
+        HistoryLoginDao.getInstance().setDataProvider(dataProvider);
+        UserController userController = UserController.getInstance();
+        List<HistoryLoginDto> dto = userController.getListUserIp();
+        for (HistoryLoginDto historyLoginDto : dto) {
+            listModel.addElement(historyLoginDto.getIpAddress());
         }
+
 
         comboBox.addActionListener(new ActionListener() {
             @Override

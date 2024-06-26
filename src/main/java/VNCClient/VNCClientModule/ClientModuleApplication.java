@@ -1,6 +1,7 @@
 package VNCClient.VNCClientModule;
 
 import VNCClient.VNCClientModule.controller.UserController;
+import VNCClient.VNCClientModule.daoservice.HistoryLoginDao;
 import VNCClient.VNCClientModule.daoservice.UserDao;
 import VNCClient.VNCClientModule.dbservice.IDataProvider;
 import VNCClient.VNCClientModule.dbservice.MySQLDataProvider;
@@ -20,12 +21,13 @@ public class ClientModuleApplication {
     private void init() throws SQLException {
         IDataProvider dataProvider = new MySQLDataProvider();
         UserDao.getInstance().setDataProvider(dataProvider);
+        HistoryLoginDao.getInstance().setDataProvider(dataProvider);
     }
-    private void login(){
+    private void login(String username, String password){
         UserController userController = UserController.getInstance();
         UserDto userDto = new UserDto();
-        userDto.setUsername("tao");
-        userDto.setPassword("tao");
+        userDto.setUsername(username);
+        userDto.setPassword(password);
         userController.login(userDto);
 
         List<HistoryLoginDto> dto = userController.getListUserIp();
