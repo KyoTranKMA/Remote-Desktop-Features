@@ -32,8 +32,8 @@ public class UserService {
         }
         return historyLoginModels;
     }
-    public void login(UserModel user) {
-        UserDao.getInstance().login(toEntity(user));
+    public boolean login(UserModel user) {
+       return UserDao.getInstance().login(toEntity(user));
     }
     public void logout(UserModel user) {
         UserDao.getInstance().logout(toEntity(user));

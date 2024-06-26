@@ -1,6 +1,7 @@
 package VNCClient.VNCClientModule.view;
 
 
+import VNCClient.VNCClientModule.ClientModuleApplication;
 import VNCClient.VNCClientModule.client.VNCClient;
 import VNCClient.VNCClientModule.client.VNCConfig;
 
@@ -38,6 +39,7 @@ public class VNCGUI extends JFrame {
 
     private JMenuItem connectMenuItem;
     private JMenuItem disconnectMenuItem;
+    private JMenuItem logoutMenuItem;
 
     private JMenuItem bpp8IndexedColorMenuItem;
     private JMenuItem bpp16TrueColorMenuItem;
@@ -91,8 +93,8 @@ public class VNCGUI extends JFrame {
         }
     });
 
-    public VNCGUI() {
-        setTitle("VNC Client");
+    public VNCGUI(String username) {
+        setTitle("VNC Client - " + username);
         setIconImage(getDefaultToolkit().getImage(getClass().getResource("/icon.png")));
 
         setSize(DEFAULT_SCREEN_WIDTH, DEFAULT_SCREEN_HEIGHT);
@@ -113,7 +115,7 @@ public class VNCGUI extends JFrame {
             }
         });
 
-        addMenu();
+        addMenu(username);
         addMouseListeners();
         addKeyListener();
         addDrawingSurface();
@@ -233,7 +235,7 @@ public class VNCGUI extends JFrame {
         client = new VNCClient(config);
     }
 
-    private void addMenu() {
+    private void addMenu(String username) {
         JMenuBar menu = new JMenuBar();
 
         JMenu connectionMenu = new JMenu("Connection");
@@ -248,6 +250,15 @@ public class VNCGUI extends JFrame {
         disconnectMenuItem.setEnabled(false);
         disconnectMenuItem.addActionListener(event -> disconnect());
 
+        logoutMenuItem = new JMenuItem("Logout");
+        logoutMenuItem.addActionListener(event -> {
+            ClientModuleApplication.logout(username);
+            disconnect();
+            dispose();
+            MainFrame mainFrame = new MainFrame();
+            mainFrame.setVisible(true);
+        });
+
         JMenuItem exit = new JMenuItem("Exit");
         exit.setMnemonic(VK_X);
         exit.addActionListener(event -> {
@@ -257,6 +268,7 @@ public class VNCGUI extends JFrame {
 
         connectionMenu.add(connectMenuItem);
         connectionMenu.add(disconnectMenuItem);
+        connectionMenu.add(logoutMenuItem);
         connectionMenu.add(exit);
 
         colorDepthsMenu = new JMenu("Colors");
@@ -396,7 +408,7 @@ public class VNCGUI extends JFrame {
     private void setMenuState(boolean running) {
         if (running) {
             connectMenuItem.setEnabled(false);
-            disconnectMenuItem.setEnabled(true);;
+            disconnectMenuItem.setEnabled(true);
             encodingsMenu.setEnabled(false);
             colorDepthsMenu.setEnabled(false);
             optionsMenu.setEnabled(false);

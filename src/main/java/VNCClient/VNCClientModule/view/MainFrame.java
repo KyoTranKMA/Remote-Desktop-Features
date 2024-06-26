@@ -3,14 +3,14 @@ package VNCClient.VNCClientModule.view;
 import javax.swing.*;
 import java.awt.*;
 
-public class MainFrame {
+public class MainFrame extends Component {
     private JFrame frame;
     private JPanel cards; // This will hold the "cards" - the Login and Signup panels
     private Login loginPanel;
     private Signup signupPanel;
 
     public MainFrame() {
-        frame = new JFrame("Login/Signup");
+        frame = new JFrame("VNC Client");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Create the "cards"
@@ -48,7 +48,11 @@ public class MainFrame {
         frame.pack();
     }
 
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new MainFrame());
+    public void dispose() {
+        frame.dispose();
     }
+
+//    public static void main(String[] args) {
+//        SwingUtilities.invokeLater(() -> new MainFrame());
+//    }
 }

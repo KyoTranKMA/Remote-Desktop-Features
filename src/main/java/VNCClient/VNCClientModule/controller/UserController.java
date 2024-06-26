@@ -38,8 +38,8 @@ public class UserController implements IUserController{
     }
 
     @Override
-    public void login(UserDto user) {
-        UserService.getInstance().login(toModel(user));
+    public boolean login(UserDto user) {
+        return UserService.getInstance().login(toModel(user));
     }
     @Override
     public void logout(UserDto user) {

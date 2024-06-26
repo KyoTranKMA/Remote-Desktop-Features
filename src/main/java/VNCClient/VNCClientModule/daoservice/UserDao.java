@@ -2,6 +2,7 @@ package VNCClient.VNCClientModule.daoservice;
 
 import VNCClient.VNCClientModule.dbservice.IDataProvider;
 import VNCClient.VNCClientModule.entity.UserEntity;
+import VNCClient.VNCClientModule.view.VNCGUI;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -83,7 +84,8 @@ public class UserDao {
                         System.out.println("Add login history failed");
                     }
 
-
+//                    VNCGUI viewer = new VNCGUI(entity.getUsername());
+//                    viewer.setVisible(true);
 
                     return true;
                 } else {
